@@ -20,11 +20,13 @@ use App\Http\Controllers\API\RoutineController;
 // });
 
 
- 
+// Route::post('/', function(){
+//     return "hello";
+// });
+
 Route::post('/routines', [RoutineController::class, 'addRoutine']);
 Route::put('/routines/{id}', [RoutineController::class, 'editRoutine']);
 Route::delete('/routines', [RoutineController::class, 'deleteRoutine']);
-Route::get('/routines/{id}', [RoutineController::class, 'getRoutineById'] );
+Route::get('/routines/{id}', [RoutineController::class, 'getRoutineById']);
 Route::get('/routines', [RoutineController::class, 'getAllRoutine']);
-
-
+Route::get('/searchRoutines/{name}', [RoutineController::class, 'searchRoutine']);

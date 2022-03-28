@@ -27,7 +27,7 @@ class RoutineController extends Controller
             'description' => 'filled|string|max:255',
         ]);
         
-        $editRoutine = Routine::findorFail($id);
+        $editRoutine = Routine::find($id);
         
         $editRoutine->update($request->all());
         $routine = Routine::where('id', $id)->get();
@@ -36,13 +36,31 @@ class RoutineController extends Controller
         // return 'Hello World: Edit Routine';
     }
     public function deleteRoutine(Request $request,$id) {
-        return 'Hello World: Delete Routine';
+        $validated = $request->validate([
+            'name' => 'filled|string',
+            'description' => 'filled|string|max:255',
+        ]);
+        
+        $deleteRoutine = Routine::findorFail($id);
+        
+        $deleteRoutine->delete($request->all());
+        $routine = Routine::where('id', $id)->get();
+        return $routine;
     }
     public function getRoutineById(Request $request, $id) {
-        return $id;
+        $getRoutineById = Routine::find($id);
+        
+        // $routine = Routine::where('id', $id)->get();
+        return $getRoutineById;
         // return 'Hello World: Get By ID';
     }
     public function getAllRoutine(Request $request) {
-        return 'Hello World: Get ALL';
+        $getAllRoutine = Routine::select('id', 'name','description')->get();
+        return $getAllRoutine;
+    }
+
+    public function searchRoutine(Request $request, $name) {
+        $searchRoutine = Routine::select('id', 'name','description')->whereRaw("name LIKE '%$name%'")->get();
+        return $searchRoutine;
     }
 }
