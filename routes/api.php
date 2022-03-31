@@ -30,3 +30,6 @@ Route::delete('/routines/{id}', [RoutineController::class, 'deleteRoutine']);
 Route::get('/routines/{id}', [RoutineController::class, 'getRoutineById']);
 Route::get('/routines', [RoutineController::class, 'getAllRoutine']);
 Route::get('/searchRoutines/{name}', [RoutineController::class, 'searchRoutine']);
+
+
+//test
