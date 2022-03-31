@@ -26,7 +26,7 @@ use App\Http\Controllers\API\RoutineController;
 
 Route::post('/routines', [RoutineController::class, 'addRoutine']);
 Route::put('/routines/{id}', [RoutineController::class, 'editRoutine']);
-Route::delete('/routines', [RoutineController::class, 'deleteRoutine']);
+Route::delete('/routines/{id}', [RoutineController::class, 'deleteRoutine']);
 Route::get('/routines/{id}', [RoutineController::class, 'getRoutineById']);
 Route::get('/routines', [RoutineController::class, 'getAllRoutine']);
 Route::get('/searchRoutines/{name}', [RoutineController::class, 'searchRoutine']);
