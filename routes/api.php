@@ -20,9 +20,9 @@ use App\Http\Controllers\API\RoutineController;
 // });
 
 
-// Route::post('/', function(){
-//     return "hello";
-// });
+Route::post('/all', function(){
+    return "hello";
+});
 
 Route::post('/routines', [RoutineController::class, 'addRoutine']);
 Route::put('/routines/{id}', [RoutineController::class, 'editRoutine']);
