@@ -20,7 +20,7 @@ use App\Http\Controllers\API\RoutineController;
 // });
 
 
-// Route::post('/', function(){
+// Route::get('/all', function(){
 //     return "hello";
 // });
 
